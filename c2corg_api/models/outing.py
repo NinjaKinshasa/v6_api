@@ -104,6 +104,8 @@ class _OutingMixin(object):
 
     mtb_down_rating = Column(enums.mtb_down_rating)
 
+    enable_view_count = Column(Boolean)
+
 
 attributes = [
     'access_condition', 'activities', 'avalanche_signs',
@@ -116,7 +118,8 @@ attributes = [
     'hiking_rating', 'ski_rating', 'labande_global_rating', 'ice_rating',
     'snowshoe_rating', 'global_rating', 'height_diff_difficulties',
     'engagement_rating', 'equipment_rating', 'rock_free_rating',
-    'via_ferrata_rating', 'mtb_up_rating', 'mtb_down_rating'
+    'via_ferrata_rating', 'mtb_up_rating', 'mtb_down_rating',
+    'enable_view_count',
     ]
 
 

@@ -46,6 +46,8 @@ class _DocumentMixin(object):
     """
     version = Column(Integer, nullable=False, server_default='1')
 
+    view_count = Column(Integer)
+
     # a protected document can only be edited by moderators
     protected = Column(Boolean, nullable=False, server_default='false')
 
@@ -77,6 +79,8 @@ class Document(Base, _DocumentMixin):
     __tablename__ = 'documents'
     document_id = Column(Integer, primary_key=True)
 
+    view_count = Column(Integer)
+
     locales = relationship('DocumentLocale')
     geometry = relationship('DocumentGeometry', uselist=False)
 
@@ -87,7 +91,7 @@ class Document(Base, _DocumentMixin):
     }, _DocumentMixin.__mapper_args__)
 
     _ATTRIBUTES_WHITELISTED = \
-        ['document_id', 'version', 'quality']
+        ['document_id', 'version', 'quality', 'view_count']
 
     _ATTRIBUTES = \
         _ATTRIBUTES_WHITELISTED + ['protected', 'redirects_to']
@@ -428,7 +432,7 @@ class ArchiveDocumentGeometry(Base, _DocumentGeometryMixin):
 
 
 schema_attributes = [
-    'document_id', 'version', 'locales', 'geometry', 'quality'
+    'document_id', 'version', 'locales', 'geometry', 'quality', 'view_count'
 ]
 schema_locale_attributes = [
     'version', 'lang', 'title', 'description', 'summary'

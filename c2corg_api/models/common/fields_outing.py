@@ -31,7 +31,8 @@ DEFAULT_FIELDS = [
     'condition_rating',
     'hut_status',
     'disable_comments',
-    'quality'
+    'quality',
+    'enable_view_count',
 ]
 DEFAULT_REQUIRED = [
     'locales',
